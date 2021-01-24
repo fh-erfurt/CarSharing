@@ -1,5 +1,5 @@
 package service.util.listener.actionservicelistener;
 
-public interface ActionServiceSuccessListener<T> {
+public interface ActionServiceSuccessListener<T> extends ActionServiceStateListener {
     abstract void actionSuccess(T t);
 }

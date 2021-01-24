@@ -1,5 +1,5 @@
 package service.util.listener.actionservicelistener;
 
-public interface ActionServiceFailureListener {
+public interface ActionServiceFailureListener extends ActionServiceStateListener {
     abstract void onActionFailure(Exception e);
 }

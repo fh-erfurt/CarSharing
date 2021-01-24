@@ -1,10 +1,10 @@
-package service.actionservice;
+package service.util.actionservice;
 
 import service.util.listener.actionservicelistener.ActionServiceCompleteListener;
 import service.util.listener.actionservicelistener.ActionServiceFailureListener;
 import service.util.listener.actionservicelistener.ActionServiceSuccessListener;
 
-public class ActionServiceUpdateUserEmail<T> extends ActionService<T> {
+public class ActionServiceSendEmail<T> extends ActionService<T> {
     @Override
     public ActionService<T> addActionServiceCompleteListener(ActionServiceCompleteListener<T> listener) {
         return null;
