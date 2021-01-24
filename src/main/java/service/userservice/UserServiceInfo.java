@@ -1,8 +1,8 @@
-package service.user;
+package service.userservice;
 
 // representation of standard user information
 
-public interface IUserInfo {
+public interface UserServiceInfo {
     // returns user's name
     abstract String getName();
 

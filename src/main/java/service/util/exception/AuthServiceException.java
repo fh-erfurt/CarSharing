@@ -1,9 +1,9 @@
-package service.exception;
+package service.util.exception;
 
-public class ServiceAuthException extends ServiceException {
+public class AuthServiceException extends ActionServiceException {
     private final String errorCode;
 
-    public ServiceAuthException(String errorCode, String exceptionMessage) {
+    public AuthServiceException(String errorCode, String exceptionMessage) {
         super(exceptionMessage);
         this.errorCode = errorCode;
     }
