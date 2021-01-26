@@ -1,6 +1,6 @@
-package auth.authidtokenresult;
+package auth.idtokenreport;
 
-public class SuperAuthIDTokenResult {
+public class IdTokenReport {
     public long getAuthTimestamp(){
         return 0;
     }

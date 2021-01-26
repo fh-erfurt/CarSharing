@@ -1,8 +1,8 @@
 package job;
 
-import listener.jobstatelistener.OnCompleteListener;
-import listener.jobstatelistener.OnFailureListener;
-import listener.jobstatelistener.OnSuccessListener;
+import job.statelistener.OnCompleteListener;
+import job.statelistener.OnFailureListener;
+import job.statelistener.OnSuccessListener;
 
 import java.util.concurrent.Executor;
 

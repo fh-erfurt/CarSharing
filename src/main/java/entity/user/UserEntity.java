@@ -1,10 +1,9 @@
 package entity.user;
 
-import auth.authidtokenresult.EntityAuthIDTokenResult;
-import auth.authcredential.PhoneAuthCredential;
-import auth.authidtokenresult.VehicleBookedAuthIDTokenResult;
+import auth.credential.PhoneCredential;
+import auth.idtokenreport.IdTokenReport;
 import entity.SuperEntity;
-import exception.*;
+import exception.authexception.*;
 import job.Job;
 
 public abstract class UserEntity extends SuperEntity implements UserInfo {
@@ -14,11 +13,7 @@ public abstract class UserEntity extends SuperEntity implements UserInfo {
 
     public abstract String getEmail();
 
-    public Job<VehicleBookedAuthIDTokenResult> getAuthIDToken (boolean forceRefresh) throws AuthInvalidEntityException {
-        return null;
-    }
-
-    public Job<EntityAuthIDTokenResult> getVehicleBookedIDToken (boolean forceRefresh) throws AuthInvalidEntityException, BookingTokenExpiredException {
+    public Job<IdTokenReport> getAuthIdToken (boolean forceRefresh) throws AuthInvalidEntityException {
         return null;
     }
 
@@ -38,7 +33,7 @@ public abstract class UserEntity extends SuperEntity implements UserInfo {
         return null;
     }
 
-    public Job<Void> updatePhoneNumber(PhoneAuthCredential credential) throws AuthEntityCollisionException, AuthInvalidEntityException, AuthRecentLoginRequiredException {
+    public Job<Void> updatePhoneNumber(PhoneCredential credential) throws AuthEntityCollisionException, AuthInvalidEntityException, AuthRecentLoginRequiredException {
         return null;
     }
 

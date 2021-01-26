@@ -1,4 +1,4 @@
-package exception;
+package exception.authexception;
 
 public class AuthEntityCollisionException extends AuthException{
     public AuthEntityCollisionException(String errorCode, String message) {

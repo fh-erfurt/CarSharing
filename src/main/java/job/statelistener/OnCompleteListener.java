@@ -1,4 +1,4 @@
-package listener.jobstatelistener;
+package job.statelistener;
 
 import job.Job;
 

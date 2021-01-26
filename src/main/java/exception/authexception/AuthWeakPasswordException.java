@@ -1,4 +1,4 @@
-package exception;
+package exception.authexception;
 
 public class AuthWeakPasswordException extends AuthException{
     public AuthWeakPasswordException(String errorCode, String message) {

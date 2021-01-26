@@ -1,9 +1,9 @@
 package auth;
 
-import auth.authcredential.AuthCredential;
+import auth.credential.Credential;
 import entity.SuperEntity;
 
 public interface AuthReport {
-    AuthCredential getCredential();
+    Credential getCredential();
     SuperEntity getEntity();
 }

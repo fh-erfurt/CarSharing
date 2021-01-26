@@ -1,6 +1,8 @@
-package exception;
+package exception.authexception;
 
-public class AuthException extends SuperException{
+import exception.SuperException;
+
+public class AuthException extends SuperException {
     public AuthException(String errorCode, String message){
         super(message);
     }

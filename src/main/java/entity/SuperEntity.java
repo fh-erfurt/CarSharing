@@ -1,11 +1,11 @@
 package entity;
 
-import auth.authcredential.AuthCredential;
+import auth.credential.Credential;
 import auth.AuthReport;
-import auth.authidtokenresult.SuperAuthIDTokenResult;
-import exception.AuthInvalidCredentialException;
-import exception.AuthInvalidEntityException;
-import exception.AuthRecentLoginRequiredException;
+import auth.idtokenreport.IdTokenReport;
+import exception.authexception.AuthInvalidCredentialException;
+import exception.authexception.AuthInvalidEntityException;
+import exception.authexception.AuthRecentLoginRequiredException;
 import job.Job;
 
 import java.io.Serializable;
@@ -21,7 +21,7 @@ public abstract class SuperEntity implements EntityInfo, Serializable {
 
     public abstract String getDisplayName();
 
-    public Job<SuperAuthIDTokenResult> getIDToken (boolean forceRefresh) throws AuthInvalidEntityException {
+    public Job<IdTokenReport> getIDToken (boolean forceRefresh) throws AuthInvalidEntityException {
         return null;
     }
 
@@ -29,11 +29,11 @@ public abstract class SuperEntity implements EntityInfo, Serializable {
 
     public abstract String getId();
 
-    public Job<Void> reauthenticate(AuthCredential credential) throws AuthInvalidEntityException, AuthInvalidCredentialException {
+    public Job<Void> reauthenticate(Credential credential) throws AuthInvalidEntityException, AuthInvalidCredentialException {
         return null;
     }
 
-    public Job<AuthReport> reauthenticateAndRetrieveData(AuthCredential credential) throws AuthInvalidEntityException, AuthInvalidCredentialException {
+    public Job<AuthReport> reauthenticateAndRetrieveData(Credential credential) throws AuthInvalidEntityException, AuthInvalidCredentialException {
         return null;
     }
 
