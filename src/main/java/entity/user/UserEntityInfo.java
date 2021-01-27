@@ -1,8 +1,8 @@
 package entity.user;
 
-import entity.EntityInfo;
+import entity.AppEntityInfo;
 
-public interface UserInfo extends EntityInfo {
+public interface UserEntityInfo extends AppEntityInfo {
     String getEmail();
     String getPhoneNumber();
     boolean isEmailVerified();

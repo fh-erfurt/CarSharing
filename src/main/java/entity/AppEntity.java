@@ -1,8 +1,8 @@
 package entity;
 
 import auth.credential.Credential;
-import auth.AuthReport;
-import auth.idtokenreport.IdTokenReport;
+import auth.AppEntityAuthResult;
+import auth.idtokenreport.IdTokenResult;
 import exception.authexception.AuthInvalidCredentialException;
 import exception.authexception.AuthInvalidEntityException;
 import exception.authexception.AuthRecentLoginRequiredException;
@@ -10,8 +10,8 @@ import job.Job;
 
 import java.io.Serializable;
 
-public abstract class SuperEntity implements EntityInfo, Serializable {
-    public SuperEntity() {
+public abstract class AppEntity implements AppEntityInfo, Serializable {
+    public AppEntity() {
 
     }
 
@@ -21,7 +21,7 @@ public abstract class SuperEntity implements EntityInfo, Serializable {
 
     public abstract String getDisplayName();
 
-    public Job<IdTokenReport> getIDToken (boolean forceRefresh) throws AuthInvalidEntityException {
+    public Job<IdTokenResult> getIDToken (boolean forceRefresh) throws AuthInvalidEntityException {
         return null;
     }
 
@@ -33,7 +33,7 @@ public abstract class SuperEntity implements EntityInfo, Serializable {
         return null;
     }
 
-    public Job<AuthReport> reauthenticateAndRetrieveData(Credential credential) throws AuthInvalidEntityException, AuthInvalidCredentialException {
+    public Job<AppEntityAuthResult> reauthenticateAndRetrieveData(Credential credential) throws AuthInvalidEntityException, AuthInvalidCredentialException {
         return null;
     }
 
@@ -41,7 +41,7 @@ public abstract class SuperEntity implements EntityInfo, Serializable {
         return null;
     }
 
-    public Job<Void> updateProfile(EntityProfileChangeRequest request) throws AuthInvalidEntityException {
+    public Job<Void> updateProfile(AppEntityProfileChangeRequest request) throws AuthInvalidEntityException {
         return null;
     }
 }

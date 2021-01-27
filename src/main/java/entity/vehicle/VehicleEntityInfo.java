@@ -1,8 +1,8 @@
 package entity.vehicle;
 
-import entity.EntityInfo;
+import entity.AppEntityInfo;
 
-public interface VehicleInfo extends EntityInfo {
+public interface VehicleEntityInfo extends AppEntityInfo {
     String getVehicleBrandName();
     String getVehicleModelName();
     String getVehicleModelNumber();

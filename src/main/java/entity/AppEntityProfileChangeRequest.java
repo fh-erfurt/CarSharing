@@ -1,6 +1,6 @@
 package entity;
 
-public class EntityProfileChangeRequest {
+public class AppEntityProfileChangeRequest {
     public String getDisplayName(){
         return null;
     }
@@ -13,13 +13,13 @@ public class EntityProfileChangeRequest {
         Builder(){
 
         }
-        public EntityProfileChangeRequest build (){
+        public AppEntityProfileChangeRequest build (){
             return null;
         }
-        public EntityProfileChangeRequest.Builder setDisplayName(String displayName){
+        public AppEntityProfileChangeRequest.Builder setDisplayName(String displayName){
             return null;
         }
-        public EntityProfileChangeRequest.Builder setPhotoUrl(String photoUrl){
+        public AppEntityProfileChangeRequest.Builder setPhotoUrl(String photoUrl){
             return null;
         }
     }

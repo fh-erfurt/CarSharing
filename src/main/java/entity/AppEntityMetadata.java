@@ -1,6 +1,6 @@
 package entity;
 
-public interface EntityMetadata {
+public interface AppEntityMetadata {
     long getCreationTimestamp();
     long getLastSignInTimestamp();
     long getLastUsedTimestamp();

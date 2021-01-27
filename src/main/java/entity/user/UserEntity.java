@@ -1,23 +1,23 @@
 package entity.user;
 
 import auth.credential.PhoneCredential;
-import auth.idtokenreport.IdTokenReport;
-import entity.SuperEntity;
+import auth.idtokenreport.IdTokenResult;
+import entity.AppEntity;
 import exception.authexception.*;
 import job.Job;
 
-public abstract class UserEntity extends SuperEntity implements UserInfo {
+public abstract class UserEntity extends AppEntity implements UserEntityInfo {
     public UserEntity() {
         super();
     }
 
     public abstract String getEmail();
 
-    public Job<IdTokenReport> getAuthIdToken (boolean forceRefresh) throws AuthInvalidEntityException {
+    public Job<IdTokenResult> getAuthIdToken (boolean forceRefresh) throws AuthInvalidEntityException {
         return null;
     }
 
-    public abstract UserMetadata getMetadata();
+    public abstract UserEntityMetadata getMetadata();
 
     public abstract String getPhoneNumber();
 

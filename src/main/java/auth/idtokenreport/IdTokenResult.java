@@ -1,6 +1,6 @@
 package auth.idtokenreport;
 
-public class IdTokenReport {
+public class IdTokenResult {
     public long getAuthTimestamp(){
         return 0;
     }

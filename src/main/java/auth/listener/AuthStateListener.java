@@ -1,7 +1,7 @@
 package auth.listener;
 
-import auth.Auth;
+import auth.AppEntityAuth;
 
 public interface AuthStateListener {
-    void onAuthStateChanged(Auth auth);
+    void onAuthStateChanged(AppEntityAuth appEntityAuth);
 }

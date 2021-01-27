@@ -2,7 +2,7 @@ package entity;
 
 import java.io.Serializable;
 
-public interface EntityInfo {
+public interface AppEntityInfo {
     String getDisplayName();
     String getPhotoUrl();
     String getId();
