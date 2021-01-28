@@ -1,4 +1,4 @@
-package auth.beta;
+package auth.beta.idtoken;
 
 public class IdTokenResult {
     public long getAuthTimestamp(){

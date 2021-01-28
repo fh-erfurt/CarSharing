@@ -1,4 +1,4 @@
-package auth.beta;
+package auth.beta.idtoken;
 
 import auth.AppAuth;
 

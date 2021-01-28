@@ -1,6 +1,6 @@
-package auth.accesscode;
+package auth.beta.actioncode;
 
-public enum AccessCodeOperation {
+public enum ActionCodeOperation {
     PASSWORD_RESET(1),
     RECOVER_EMAIL(2),
     VERIFY_EMAIL(3),
@@ -8,10 +8,10 @@ public enum AccessCodeOperation {
     SIGN_IN_WITH_EMAIL_LINK(5),
     ERROR(6);
 
-    AccessCodeOperation() {
+    ActionCodeOperation() {
         this(6);
     }
 
-    AccessCodeOperation(int operation) {
+    ActionCodeOperation(int operation) {
     }
 }

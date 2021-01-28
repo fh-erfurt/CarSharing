@@ -1,6 +1,6 @@
 package entity.beta.appentity;
 
-import auth.beta.IdTokenResult;
+import auth.beta.idtoken.IdTokenResult;
 import exception.authexception.AuthInvalidUserException;
 import job.Job;
 

@@ -3,7 +3,6 @@ package entity.user;
 import auth.AppAuthResult;
 import auth.authcredential.AuthCredential;
 import auth.authcredential.PhoneAuthCredential;
-import auth.beta.IdTokenResult;
 import exception.authexception.*;
 import job.Job;
 

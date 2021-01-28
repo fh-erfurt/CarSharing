@@ -1,9 +1,8 @@
 package auth;
 
 import app.App;
-import auth.accesscode.AccessCodeResult;
-import auth.authcredential.AuthCredential;
-import auth.beta.IdTokenListener;
+import auth.beta.actioncode.ActionCodeResult;
+import auth.beta.idtoken.IdTokenListener;
 import auth.listener.AuthStateListener;
 import entity.beta.appentity.AppEntity;
 import exception.authexception.*;
@@ -50,7 +49,7 @@ public abstract class AppAuth {
     // Code is valid fora single use
     // returns Job of AccessCodeReport which can be used to see the result via the AccessCodeResult
     // AccessCodeResult hold user email for which AccessCode is valid, as well as the AccessCodeOperation which is being performed
-    public Job<AccessCodeResult> checkAccessCode(String code){
+    public Job<ActionCodeResult> checkAccessCode(String code){
         return null;
     }
 
@@ -61,7 +60,7 @@ public abstract class AppAuth {
     // IllegalArgumentException thrown if pass null code or newPassword
     // AuthAccessCodeException thrown if code is malformed or expired
     // AuthInvalidEntityException thrown if user corresponding to given code has been disabled, or if there is no user corresponding to given code
-    public Job<Void> confirmPasswordReset(String code, String newPassword) throws IllegalArgumentException, AuthAccessCodeException, AuthInvalidUserException, AuthWeakPasswordException {
+    public Job<Void> confirmPasswordReset(String code, String newPassword) throws IllegalArgumentException, AuthActionCodeException, AuthInvalidUserException, AuthWeakPasswordException {
         return null;
     }
 
