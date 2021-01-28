@@ -1,4 +1,4 @@
-package app.activity;
+package app;
 
 public class Constants {
     public static final int USER_TYPE_DRIVER = 0;

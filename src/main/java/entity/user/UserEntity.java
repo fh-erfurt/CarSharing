@@ -43,9 +43,7 @@ public abstract class UserEntity implements UserEntityInfo {
 
     // Initiates email verification for the user.
     // Returns Job to track completion of the sending operation.
-    public Job<Void> sendEmailVerification() {
-        return null;
-    }
+    public abstract Job<Void> sendEmailVerification();
 
     // Updates the email address of the user.
     // Important: this is a security sensitive operation that requires the user to have recently signed in.
@@ -57,9 +55,7 @@ public abstract class UserEntity implements UserEntityInfo {
     // AuthInvalidUserException thrown if the current user's account has been disabled, deleted, or its credentials are no longer valid
     // AuthRecentLoginRequiredException thrown if the user's last sign-in time does not meet the security threshold.
     // Use reauthenticate(AuthCredential) to resolve.
-    public Job<Void> updateEmail (String email) throws AuthInvalidUserException, AuthInvalidCredentialException, AuthUserCollisionException, AuthRecentLoginRequiredException {
-        return null;
-    }
+    public abstract Job<Void> updateEmail (String email) throws AuthInvalidUserException, AuthInvalidCredentialException, AuthUserCollisionException, AuthRecentLoginRequiredException;
 
     // Updates the password of the user.
     // Important: this is a security sensitive operation that requires the user to have recently signed in.
@@ -68,9 +64,7 @@ public abstract class UserEntity implements UserEntityInfo {
     // AuthInvalidUserException thrown if the current user's account has been disabled, deleted, or its credentials are no longer valid
     // AuthRecentLoginRequiredException thrown if the user's last sign-in time does not meet the security threshold.
     // Use reauthenticate(AuthCredential) to resolve.
-    public Job<Void> updatePassword(String password) throws AuthWeakPasswordException, AuthInvalidUserException, AuthRecentLoginRequiredException {
-        return null;
-    }
+    public abstract Job<Void> updatePassword(String password) throws AuthWeakPasswordException, AuthInvalidUserException, AuthRecentLoginRequiredException;
 
     // Updates the phone number of the user.
     // Important: this is a security sensitive operation that requires the user to have recently signed in.
@@ -79,17 +73,13 @@ public abstract class UserEntity implements UserEntityInfo {
     // AuthInvalidUserException thrown if the current user's account has been disabled, deleted, or its credentials are no longer valid
     // AuthRecentLoginRequiredException thrown if the user's last sign-in time does not meet the security threshold.
     // Use reauthenticate(AuthCredential) to resolve.
-    public Job<Void> updatePhoneNumber(PhoneAuthCredential credential) throws AuthUserCollisionException, AuthInvalidUserException, AuthRecentLoginRequiredException {
-        return null;
-    }
+    public abstract Job<Void> updatePhoneNumber(PhoneAuthCredential credential) throws AuthUserCollisionException, AuthInvalidUserException, AuthRecentLoginRequiredException;
 
     // Sends a verification email to newEmail.
     // Upon redemption of the link in the email, this user's email will be changed to newEmail and that email will be marked verified.
     // newEmail	the user's new email
     // Returns Job to track completion of the sending operation.
-    public Job<Void> verifyBeforeUpdateEmail(String newEmail) {
-        return null;
-    }
+    public abstract Job<Void> verifyBeforeUpdateEmail(String newEmail);
 
     // Deletes the user record from your Firebase project's database. If the operation is successful, the user will be signed out.
     // this is a security sensitive operation that requires the user to have recently signed in.
@@ -97,9 +87,7 @@ public abstract class UserEntity implements UserEntityInfo {
     // InvalidUserException thrown if the current user's account has been disabled, deleted, or its credentials are no longer valid
     // AuthRecentLoginRequiredException thrown if the user's last sign-in time does not meet the security threshold.
     // Use reauthenticate(AuthCredential) to resolve.
-    public Job<Void> delete() throws AuthInvalidUserException, AuthRecentLoginRequiredException {
-        return null;
-    }
+    public abstract Job<Void> delete() throws AuthInvalidUserException, AuthRecentLoginRequiredException;
 
     // Re-authenticates the user with the given credential.
     // This is useful for operations that require a recent sign-in, to prevent or resolve a AuthRecentLoginRequiredException.
@@ -108,9 +96,7 @@ public abstract class UserEntity implements UserEntityInfo {
     // or if it corresponds to another existing user's account.
     // Inspect the error code to disambiguate.
     // credential-authentication credential that must be valid for the current user.
-    public Job<Void> reauthenticate(AuthCredential authCredential) throws AuthInvalidUserException, AuthInvalidCredentialException {
-        return null;
-    }
+    public abstract Job<Void> reauthenticate(AuthCredential authCredential) throws AuthInvalidUserException, AuthInvalidCredentialException;
 
     // Re-authenticates the user with the given credential, and returns the profile data for that account.
     // This is useful for operations that require a recent sign-in, to prevent or resolve a AuthRecentLoginRequiredException.
@@ -119,20 +105,14 @@ public abstract class UserEntity implements UserEntityInfo {
     // or if it corresponds to another existing user's account.
     // Inspect the error code to disambiguate.
     // Returns AuthResult containing the User reference and AdditionalUserInfo.
-    public Job<AppAuthResult> reauthenticateAndRetrieveData(AuthCredential authCredential) throws AuthInvalidUserException, AuthInvalidCredentialException {
-        return null;
-    }
+    public abstract Job<AppAuthResult> reauthenticateAndRetrieveData(AuthCredential authCredential) throws AuthInvalidUserException, AuthInvalidCredentialException;
 
     // Manually refreshes the data of the current user (for example, display name, and so on).
     // AuthInvalidUserException thrown if the current user's account has been disabled, deleted, or its credentials are no longer valid
-    public Job<Void> reload() throws AuthInvalidUserException {
-        return null;
-    }
+    public abstract Job<Void> reload() throws AuthInvalidUserException;
 
     // Updates the user profile information. Use UserProfileChangeRequest.Builder to construct the request.
     // AuthInvalidUserException thrown if the current user's account has been disabled, deleted, or its credentials are no longer valid
-    public Job<Void> updateProfile(UserEntityProfileChangeRequest request) throws AuthInvalidUserException {
-        return null;
-    }
+    public abstract Job<Void> updateProfile(UserEntityProfileChangeRequest request) throws AuthInvalidUserException;
 
 }

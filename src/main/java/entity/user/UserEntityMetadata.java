@@ -3,7 +3,7 @@ package entity.user;
 import entity.beta.appentity.AppEntityMetadata;
 
 // Contains additional metadata associated with a user account.
-public interface UserEntityMetadata extends AppEntityMetadata {
+public interface UserEntityMetadata {
     // Returns the time at which the account was created.
     //
     //Returns
