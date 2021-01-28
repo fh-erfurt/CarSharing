@@ -1,6 +1,6 @@
 package entity.beta.appentity;
 
-import auth.IdTokenResult;
+import auth.beta.IdTokenResult;
 import exception.authexception.AuthInvalidUserException;
 import job.Job;
 
@@ -10,10 +10,6 @@ public abstract class AppEntity implements AppEntityInfo, Serializable {
     public AppEntity() {
 
     }
-
-
-
-
 
     public Job<IdTokenResult> getIDToken (boolean forceRefresh) throws AuthInvalidUserException {
         return null;

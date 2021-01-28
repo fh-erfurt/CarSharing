@@ -1,6 +1,6 @@
-package auth.credential;
+package auth.authcredential;
 
-public class PhoneCredential extends Credential {
+public class PhoneAuthCredential extends AuthCredential {
     public String getPhoneNumber(){
         return null;
     }

@@ -7,6 +7,6 @@ public interface UserEntityInfo extends AppEntityInfo {
     String getPhoneNumber();
     String getDisplayName();
     String getPhotoUrl();
-    String getId();
+    String getUserId();
     boolean isEmailVerified();
 }

@@ -2,7 +2,8 @@ package auth;
 
 import app.App;
 import auth.accesscode.AccessCodeResult;
-import auth.listener.IdTokenListener;
+import auth.authcredential.AuthCredential;
+import auth.beta.IdTokenListener;
 import auth.listener.AuthStateListener;
 import entity.beta.appentity.AppEntity;
 import exception.authexception.*;
@@ -111,6 +112,13 @@ public abstract class AppAuth {
     public Job<AppAuthResult> SignInWithEmailAndPassword(String email, String password) throws AuthInvalidUserException, AuthInvalidCredentialException {
         return null;
     }
+
+    // Tries to sign in a user with the given AuthCredential (phone or email)
+    // For all AuthCredential types except EmailAuthCredential, this method will create an account for the user in the case that it didn't exist before.
+    // beta feature
+    /*public Job<AppAuthResult> SignInWithCredential(AuthCredential credential) throws AuthInvalidUserException, AuthInvalidCredentialException, AuthUserCollisionException {
+        return null;
+    }*/
 
     // signs out current entity and clears it from non-persistent storage (disk cache)
     // upon success, operation triggers onIdTokenChanged(Auth) event in all registered IdTokenListeners

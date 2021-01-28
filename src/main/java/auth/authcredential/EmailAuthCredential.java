@@ -1,6 +1,6 @@
-package auth.credential;
+package auth.authcredential;
 
-public class EmailCredential extends Credential {
+public class EmailAuthCredential extends AuthCredential {
     public String getEmail() {
         return null;
     }

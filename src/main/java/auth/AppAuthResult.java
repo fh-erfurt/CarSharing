@@ -1,9 +1,9 @@
 package auth;
 
-import auth.credential.Credential;
+import auth.authcredential.AuthCredential;
 import entity.beta.appentity.AppEntity;
 
 public interface AppAuthResult {
-    Credential getCredential();
+    AuthCredential getCredential();
     AppEntity getEntity();
 }

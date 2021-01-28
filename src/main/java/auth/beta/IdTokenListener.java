@@ -1,4 +1,4 @@
-package auth.listener;
+package auth.beta;
 
 import auth.AppAuth;
 
