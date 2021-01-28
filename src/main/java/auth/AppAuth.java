@@ -5,6 +5,7 @@ import auth.beta.actioncode.ActionCodeResult;
 import auth.beta.idtoken.IdTokenListener;
 import auth.listener.AuthStateListener;
 import entity.beta.appentity.AppEntity;
+import entity.user.UserEntity;
 import exception.authexception.*;
 import job.Job;
 
@@ -83,7 +84,7 @@ public abstract class AppAuth {
     }
 
     // returns the current signed-in UserEntity or null if there is none
-    public AppEntity getCurrentUserEntity(){
+    public UserEntity getCurrentUserEntity(){
         return null;
     }
 
@@ -108,14 +109,14 @@ public abstract class AppAuth {
     // throws InvalidEntityException if user account corresponding to email does not exist or has been disabled
     // throws InvalidCredentialException if the password is wrong
     // return a Job of AuthResult with result of operation
-    public Job<AppAuthResult> SignInWithEmailAndPassword(String email, String password) throws AuthInvalidUserException, AuthInvalidCredentialException {
+    public Job<AppAuthResult> signInWithEmailAndPassword(String email, String password) throws AuthInvalidUserException, AuthInvalidCredentialException {
         return null;
     }
 
     // Tries to sign in a user with the given AuthCredential (phone or email)
     // For all AuthCredential types except EmailAuthCredential, this method will create an account for the user in the case that it didn't exist before.
     // beta feature
-    /*public Job<AppAuthResult> SignInWithCredential(AuthCredential credential) throws AuthInvalidUserException, AuthInvalidCredentialException, AuthUserCollisionException {
+    /*public Job<AppAuthResult> signInWithCredential(AuthCredential credential) throws AuthInvalidUserException, AuthInvalidCredentialException, AuthUserCollisionException {
         return null;
     }*/
 
