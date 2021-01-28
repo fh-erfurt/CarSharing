@@ -1,10 +1,12 @@
 package entity.user;
 
-import entity.AppEntityInfo;
+import entity.beta.appentity.AppEntityInfo;
 
 public interface UserEntityInfo extends AppEntityInfo {
     String getEmail();
     String getPhoneNumber();
+    String getDisplayName();
+    String getPhotoUrl();
+    String getId();
     boolean isEmailVerified();
-    boolean isLicenceVerified();
 }

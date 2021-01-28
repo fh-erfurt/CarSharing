@@ -1,7 +1,7 @@
 package auth.listener;
 
-import auth.AppEntityAuth;
+import auth.AppAuth;
 
 public interface IdTokenListener {
-    void onIdTokenChanged(AppEntityAuth appEntityAuth);
+    void onIdTokenChanged(AppAuth appAuth);
 }

@@ -1,6 +1,6 @@
-package entity.vehicle;
+package entity.beta.vehicle;
 
-import entity.AppEntityInfo;
+import entity.beta.appentity.AppEntityInfo;
 
 public interface VehicleEntityInfo extends AppEntityInfo {
     String getVehicleBrandName();

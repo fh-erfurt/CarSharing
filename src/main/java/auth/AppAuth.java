@@ -4,11 +4,11 @@ import app.App;
 import auth.accesscode.AccessCodeResult;
 import auth.listener.IdTokenListener;
 import auth.listener.AuthStateListener;
-import entity.AppEntity;
+import entity.beta.appentity.AppEntity;
 import exception.authexception.*;
 import job.Job;
 
-public abstract class AppEntityAuth {
+public abstract class AppAuth {
     // register a listener to changes in super entity (user/admin/vehicle via admin) auth state
     // there can be more than one listener registered at the same time for one or more auth instances
     // listeners call back in the implementation thread on the following events:
@@ -60,7 +60,7 @@ public abstract class AppEntityAuth {
     // IllegalArgumentException thrown if pass null code or newPassword
     // AuthAccessCodeException thrown if code is malformed or expired
     // AuthInvalidEntityException thrown if user corresponding to given code has been disabled, or if there is no user corresponding to given code
-    public Job<Void> confirmPasswordReset(String code, String newPassword) throws IllegalArgumentException, AuthAccessCodeException, AuthInvalidEntityException, AuthWeakPasswordException {
+    public Job<Void> confirmPasswordReset(String code, String newPassword) throws IllegalArgumentException, AuthAccessCodeException, AuthInvalidUserException, AuthWeakPasswordException {
         return null;
     }
 
@@ -73,7 +73,7 @@ public abstract class AppEntityAuth {
     // AuthInvalidCredentialException is thrown if email address is malformed
     // AuthEntityCollisionException is thrown if there already exists an account with the given email address
     // return Job of AuthReport with result of operation
-    public Job<AppEntityAuthResult> createUser(String email, String password) throws AuthWeakPasswordException, AuthInvalidCredentialException, AuthEntityCollisionException {
+    public Job<AppAuthResult> createUserEntity(String email, String password) throws AuthWeakPasswordException, AuthInvalidCredentialException, AuthUserCollisionException {
         return null;
     }
 
@@ -83,12 +83,12 @@ public abstract class AppEntityAuth {
     }
 
     // returns the current signed-in UserEntity or null if there is none
-    public AppEntity getCurrentUser(){
+    public AppEntity getCurrentUserEntity(){
         return null;
     }
 
     // returns an instance of this class corresponding to the default app instance
-    public static AppEntityAuth getInstance(){
+    public static AppAuth getInstance(){
         return null;
     }
 
@@ -108,7 +108,7 @@ public abstract class AppEntityAuth {
     // throws InvalidEntityException if user account corresponding to email does not exist or has been disabled
     // throws InvalidCredentialException if the password is wrong
     // return a Job of AuthResult with result of operation
-    public Job<AppEntityAuthResult> SignInWithEmailAndPassword(String email, String password) throws AuthInvalidEntityException, AuthInvalidCredentialException {
+    public Job<AppAuthResult> SignInWithEmailAndPassword(String email, String password) throws AuthInvalidUserException, AuthInvalidCredentialException {
         return null;
     }
 
@@ -121,7 +121,7 @@ public abstract class AppEntityAuth {
 
     // sets the current user to a copy of the given entity, but associated with this Auth's app.
     // if given user isn't valid, the an invalid user exception is returned via Job
-    public Job<Void> updateCurrentEntity(AppEntity entity){
+    public Job<Void> updateCurrentUserEntity(AppEntity entity){
         return null;
     }
 

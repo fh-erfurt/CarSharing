@@ -1,4 +1,4 @@
-package auth.idtokenreport;
+package auth;
 
 public class IdTokenResult {
     public long getAuthTimestamp(){

@@ -1,6 +1,6 @@
-package entity.vehicle;
+package entity.beta.vehicle;
 
-import entity.AppEntity;
+import entity.beta.appentity.AppEntity;
 
 public abstract class VehicleEntity extends AppEntity implements VehicleEntityInfo {
     public VehicleEntity() {
