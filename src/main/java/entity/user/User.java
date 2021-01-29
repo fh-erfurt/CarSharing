@@ -9,6 +9,18 @@ import job.Job;
 // Niklas und Lisa
 
 public class User extends UserEntity implements UserEntityInfo{
+
+    //all needed variables for user entity
+
+    private String password;
+    private String email;
+    private String photoUrl;
+    private String userId;
+    private boolean verifiedAccount;
+    private String phoneNumber;
+    private UserEntityMetadata metadata;
+
+
     @Override
     public String getEmail() {
         return null;
@@ -54,8 +66,20 @@ public class User extends UserEntity implements UserEntityInfo{
         return null;
     }
 
+    //Niklas
+
     @Override
     public Job<Void> updatePassword(String password) throws AuthWeakPasswordException, AuthInvalidUserException, AuthRecentLoginRequiredException {
+
+        if (password.length() < 6) // Testing purpose -> Password must be at least 6 characters
+        {
+            throw new AuthWeakPasswordException("1","Password not long enough!");
+
+        }else
+        {
+
+        }
+
         return null;
     }
 
