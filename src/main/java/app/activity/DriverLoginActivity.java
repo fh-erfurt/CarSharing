@@ -4,11 +4,11 @@ import auth.AppAuth;
 import auth.listener.AuthStateListener;
 import entity.user.UserEntity;
 
-public class DriverUserLoginActivity extends UserLoginActivity {
+public class DriverLoginActivity extends LoginActivity {
     private AppAuth auth;
     private AuthStateListener authStateListener;
 
-    DriverUserLoginActivity() {
+    DriverLoginActivity() {
 
         this.init();
 

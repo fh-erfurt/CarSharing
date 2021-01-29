@@ -4,11 +4,11 @@ import auth.AppAuth;
 import auth.listener.AuthStateListener;
 import entity.user.UserEntity;
 
-public class CustomerUserLoginActivity extends UserLoginActivity {
+public class CustomerLoginActivity extends LoginActivity {
     private AppAuth auth;
     private AuthStateListener authStateListener;
 
-    CustomerUserLoginActivity() {
+    CustomerLoginActivity() {
 
         this.init();
 
@@ -25,7 +25,7 @@ public class CustomerUserLoginActivity extends UserLoginActivity {
         };
     }
     private void loginCustomer(String email, String password){
-        DriverUserLoginActivity.loginUser(email, password, this.auth);
+        DriverLoginActivity.loginUser(email, password, this.auth);
     }
     private void registerCustomer(String email, String password){
         registerUser(email, password, this.auth);

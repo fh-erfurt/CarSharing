@@ -8,7 +8,7 @@ import exception.authexception.AuthUserCollisionException;
 import job.Job;
 import job.statelistener.OnCompleteListener;
 
-public class UserLoginActivity {
+public class LoginActivity {
     static void registerUser(String email, String password, AppAuth auth) {
         try {
             auth.createUserEntity(email, password).addOnCompleteListener(new OnCompleteListener<AppAuthResult>() {
