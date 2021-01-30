@@ -5,6 +5,8 @@ package exception.authexception;
 //
 //This could happen in the following cases:
 //
+//ERROR_PHONE_ALREADY_IN_USE when trying to create a new account with
+// if the phone number is already in use by a different account
 //ERROR_EMAIL_ALREADY_IN_USE when trying to create a new account with
 // Auth.createUserWithEmailAndPassword(String, String) or to change a user's email address,
 // if the email is already in use by a different account
