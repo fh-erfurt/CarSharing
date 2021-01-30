@@ -2,6 +2,7 @@ package entity.user;
 
 import auth.AppAuthResult;
 import auth.authcredential.AuthCredential;
+import auth.authcredential.EmailAuthCredential;
 import auth.authcredential.PhoneAuthCredential;
 import exception.authexception.*;
 import job.Job;
@@ -96,7 +97,7 @@ public abstract class UserEntity implements UserEntityInfo {
     // or if it corresponds to another existing user's account.
     // Inspect the error code to disambiguate.
     // credential-authentication credential that must be valid for the current user.
-    public abstract Job<Void> reauthenticate(AuthCredential authCredential) throws AuthInvalidUserException, AuthInvalidCredentialException;
+    public abstract Job<Void> reauthenticate(EmailAuthCredential authCredential) throws AuthInvalidUserException, AuthInvalidCredentialException;
 
     // Re-authenticates the user with the given credential, and returns the profile data for that account.
     // This is useful for operations that require a recent sign-in, to prevent or resolve a AuthRecentLoginRequiredException.
@@ -105,7 +106,7 @@ public abstract class UserEntity implements UserEntityInfo {
     // or if it corresponds to another existing user's account.
     // Inspect the error code to disambiguate.
     // Returns AuthResult containing the User reference and AdditionalUserInfo.
-    public abstract Job<AppAuthResult> reauthenticateAndRetrieveData(AuthCredential authCredential) throws AuthInvalidUserException, AuthInvalidCredentialException;
+    public abstract Job<AppAuthResult> reauthenticateAndRetrieveData(EmailAuthCredential authCredential) throws AuthInvalidUserException, AuthInvalidCredentialException;
 
     // Manually refreshes the data of the current user (for example, display name, and so on).
     // AuthInvalidUserException thrown if the current user's account has been disabled, deleted, or its credentials are no longer valid
