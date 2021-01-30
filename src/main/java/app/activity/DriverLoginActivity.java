@@ -24,8 +24,6 @@ public class DriverLoginActivity extends LoginActivity {
         loginUser(email, password, this.auth);
     }
 
-
-
     private void registerDriver(String email, String password){
         registerUser(email, password, this.auth);
     }
