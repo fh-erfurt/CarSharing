@@ -20,42 +20,54 @@ public class User extends UserEntity implements UserEntityInfo{
     private String userId;
     private boolean verifiedAccount;
     private String phoneNumber;
-    private UserEntityMetadata metadata;
+    private UserMetadata metadata;
 
 
+    //TODO when database is added --> get email from database
     @Override
     public String getEmail() {
-        return null;
+
+        return email;
     }
 
+    //TODO when database is added --> get displayName from database
     @Override
     public String getDisplayName() {
-        return null;
+
+        return displayName;
     }
 
+    //TODO when database is added --> get photoUrl from database
     @Override
     public String getPhotoUrl() {
-        return null;
+
+        return photoUrl;
     }
 
+    //TODO when database is added --> get userId from database
     @Override
     public String getUserId() {
-        return null;
+
+        return userId;
     }
 
     @Override
     public boolean isEmailVerified() {
-        return false;
+
+        return verifiedAccount;
     }
 
+    //TODO when database is added --> get phoneNumber from database
     @Override
     public String getPhoneNumber() {
-        return null;
+
+        return phoneNumber;
     }
 
     @Override
     public UserEntityMetadata getMetadata() {
-        return null;
+
+        return metadata;
     }
 
     @Override
@@ -65,6 +77,43 @@ public class User extends UserEntity implements UserEntityInfo{
 
     @Override
     public Job<Void> updateEmail(String email) throws AuthInvalidUserException, AuthInvalidCredentialException, AuthUserCollisionException, AuthRecentLoginRequiredException {
+
+        //reauthenticate the user
+        try {
+            EmailAuthCredential thisUser = new EmailAuthCredential(this.password,this.email);
+            reauthenticate(thisUser);
+        }
+        catch (AuthInvalidUserException invalidUser)
+        {
+            throw invalidUser;
+        }
+        catch (AuthInvalidCredentialException invalidCredential)
+        {
+            throw new AuthInvalidUserException("ERROR_USER_NOT_FOUND", "creating credential has been failed!");
+        }
+
+        // easier regex to test if email is valid
+        // needs to be modified for more security!
+        String emailRegex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+
+        // test if new email is valid
+        if (email.matches(emailRegex)) {
+            //test if email is already taken by another account
+            // for testing, email is not in use
+            if(!false)
+            {
+                //TODO when database is added --> change email in database
+                this.email = email;
+            }
+            else
+            {
+                throw new AuthUserCollisionException("ERROR_EMAIL_ALREADY_IN_USE","the requested email-address is already in use!");
+            }
+        }
+        else {
+            throw new AuthInvalidCredentialException("ERROR_EMAIL_INVALID", "Email does not have the correct form!");
+        }
+
         return null;
     }
 
