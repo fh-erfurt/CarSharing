@@ -1,9 +1,14 @@
 package activity;
 
 import auth.*;
+import data.DriversAvailable;
 import data.Locations;
 import model.location.Location;
 import model.user.User;
+
+import java.util.HashMap;
+
+import static data.DriversAvailable.getDriverLocations;
 
 public class CustomerActivity extends UserActivity {
     private Auth auth;
@@ -37,9 +42,14 @@ public class CustomerActivity extends UserActivity {
 
     void makeRequest(){
         Location pickupLocation = UserActivity.getLastLocation();
+        // notify customer searching for nearby driver
     }
 
-    private void getClosestDriver() {
-
+    private User getClosestDriver(Location location) {
+        HashMap<String, Location> driversAvailable = DriversAvailable.getDriverLocations();
+        // compare location distance to and return nearest driver
+        return null;
     }
+
+
 }
