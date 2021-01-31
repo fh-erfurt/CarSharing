@@ -21,12 +21,31 @@ public final class Locations {
         userLocations.put(customerLocationKey, customerList);
     }
     public static void updateDriverLocation(String userId, Location location){
-        userLocations.get(driverLocationKey).replace(userId, location);
+
+        if (userLocations.get(driverLocationKey).get(userId) == null)
+        {
+            userLocations.get(driverLocationKey).put(userId, location);
+        }
+        else
+        {
+            userLocations.get(driverLocationKey).replace(userId, location);
+        }
+
     }
     public static void updateCustomerLocation(String userId, Location location){
-        userLocations.get(customerLocationKey).replace(userId, location);
+
+        if (userLocations.get(customerLocationKey).get(userId) == null)
+        {
+            userLocations.get(customerLocationKey).put(userId, location);
+        }
+        else
+        {
+            userLocations.get(customerLocationKey).replace(userId, location);
+        }
+
     }
     public static Location getDriverLocation(String userId){
+
         return userLocations.get(driverLocationKey).get(userId);
     }
     public static Location getCustomerLocation(String userId){

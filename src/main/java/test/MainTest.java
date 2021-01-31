@@ -20,9 +20,11 @@ public final class MainTest {
         double dummyLat = 50.971076;
         double dummyLong = 11.037831;
 
+
+        //add customers
         for (int i = 1 ; i <= 5 ; i++)
         {
-            dummyLocation = new Location(String.valueOf(i),dummyLat++,dummyLong++);
+            dummyLocation = new Location(String.valueOf(i),dummyLat+=1,dummyLong+=1);
 
             Locations.updateCustomerLocation(String.valueOf(i),dummyLocation);
 
@@ -34,6 +36,7 @@ public final class MainTest {
 
         User dummydriver;
 
+        //add drivers
         for (int i = 6 ; i <= 10 ; i++)
         {
             dummyLocation = new Location(String.valueOf(i),dummyLat++,dummyLong++);
@@ -49,19 +52,16 @@ public final class MainTest {
         for (int i = 1 ; i <= 5 ; i++)
         {
             System.out.println(Users.getCustomer(String.valueOf(i)).getDisplayName());
-            System.out.println("Lat: "+Locations.getCustomerLocation(String.valueOf(i)).getLatitude()+" Long: "+Locations.getCustomerLocation(String.valueOf(i)).getLatitude());
+            System.out.println("Lat: "+Locations.getCustomerLocation(String.valueOf(i)).getLatitude()+" Long: "+Locations.getCustomerLocation(String.valueOf(i)).getLongitude());
         }
 
-        System.out.println("All Drivers:");
+        System.out.println("All Drivers with Location:");
 
         for (int i = 6 ; i <= 10 ; i++)
         {
             System.out.println(Users.getDriver(String.valueOf(i)).getDisplayName());
-            System.out.println("Lat: "+Locations.getDriverLocation(String.valueOf(i)).getLatitude()+" Long: "+Locations.getDriverLocation(String.valueOf(i)).getLatitude());
+            System.out.println("Lat: "+Locations.getDriverLocation(String.valueOf(i)).getLatitude()+" Long: "+Locations.getDriverLocation(String.valueOf(i)).getLongitude());
         }
-
-
-
 
     }
 
