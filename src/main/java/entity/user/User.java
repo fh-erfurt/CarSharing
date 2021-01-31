@@ -22,6 +22,16 @@ public class User extends UserEntity implements UserEntityInfo{
     private String phoneNumber;
     private UserMetadata metadata;
 
+    // constructor
+    public User(String displayName, String password, String email, String photoUrl, String userId, String phoneNumber) {
+
+        this.displayName = displayName;
+        this.email = email;
+        this.photoUrl = photoUrl;
+        this.userId = userId;
+        this.phoneNumber = phoneNumber;
+        this.metadata = new UserMetadata();
+    }
 
     //TODO when database is added --> get email from database
     @Override
