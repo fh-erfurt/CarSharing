@@ -6,4 +6,5 @@ public abstract class VehicleEntity extends AppEntity implements VehicleEntityIn
     public VehicleEntity() {
         super();
     }
+
 }
