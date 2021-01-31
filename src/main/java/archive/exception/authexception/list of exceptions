@@ -1,0 +1,6 @@
+AuthActionCodeException,
+AuthEmailException,
+AuthInvalidCredentialsException,
+AuthInvalidUserException,
+AuthRecentLoginRequiredException,
+AuthUserCollisionException
