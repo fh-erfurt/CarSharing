@@ -178,7 +178,7 @@ public class User extends UserEntity implements UserEntityInfo{
             throw new AuthInvalidUserException("ERROR_USER_NOT_FOUND", "creating credential has been failed!");
         }
 
-        //TODO when database is added --> check if phonenumber is already in use
+        //TODO when database is added --> check if phone number is already in use
         if(!false) //if number is not taken -> for testing
         {
             //TODO when database is added --> change phone number in database
@@ -195,9 +195,21 @@ public class User extends UserEntity implements UserEntityInfo{
     @Override
     public Job<Void> verifyBeforeUpdateEmail(String newEmail) {
 
-        this.email = newEmail;
-        this.sendEmailVerification();
-        this.verifiedAccount = false;
+        //if the account is verified, the email will be changed and a new verification will be send to the new email address
+        if(this.isEmailVerified())
+        {
+            //this.updateEmail(newEmail);
+            this.email = newEmail;
+            sendEmailVerification();
+            this.verifiedAccount = false;
+
+        }
+        else
+        {
+            //if the account is currently not verified, the user has to verified it first
+            sendEmailVerification();
+            this.verifiedAccount = false;
+        }
 
         return null;
     }
@@ -239,9 +251,7 @@ public class User extends UserEntity implements UserEntityInfo{
             reauthenticate(authCredentialViaEmail);
 
             //TODO retrieve data
-
         }
-        //handle exceptions
         catch (AuthInvalidUserException invalidUser)
         {
             throw invalidUser;
@@ -283,7 +293,6 @@ public class User extends UserEntity implements UserEntityInfo{
             }
 
         }
-        //handle exceptions
         catch (AuthInvalidUserException invalidUser)
         {
             throw invalidUser;
