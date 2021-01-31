@@ -33,6 +33,7 @@ public class UserMetadata{
     }
 
 
+    // calculates duration since the point the account was created (in milliseconds)
     public long getDurationSinceCreation() {
 
         long durationSinceCreation = getDurationInMilliseconds(creationTimestamp);
@@ -47,6 +48,8 @@ public class UserMetadata{
     }
 
 
+    // calculates the duration since the last sign-in (in milliseconds)
+    // returns 0 if the user never signed-in
     public long getDurationSinceLastSignIn() {
 
         long durationSinceLastSignIn = 0;
@@ -65,6 +68,8 @@ public class UserMetadata{
     }
 
 
+    // calculates the duration since the last refresh (in milliseconds)
+    // returns 0 if the user was never active
     public long getDurationSinceLastRefresh() {
 
         long durationSinceLastRefresh = 0;

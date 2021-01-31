@@ -4,6 +4,7 @@ import task.Task;
 import auth.*;
 import exception.*;
 
+// this class manages an account's data
 public class User implements UserInfo {
 
     private String displayName, password, email, photoUrl, userId, phoneNumber;
@@ -13,6 +14,7 @@ public class User implements UserInfo {
     public User(String displayName, String password, String email, String photoUrl, String userId, String phoneNumber) {
 
         this.displayName = displayName;
+        this.password = password;
         this.email = email;
         this.photoUrl = photoUrl;
         this.userId = userId;
@@ -56,7 +58,7 @@ public class User implements UserInfo {
     }
 
     public UserMetadata getMetadata() {
-        return null;
+        return metadata;
     }
 
     public Task<Void> sendEmailVerification() {
@@ -109,6 +111,41 @@ public class User implements UserInfo {
 
     public Task<Void> updateEmail(String email)
             throws InvalidUserException, InvalidCredentialException, UserCollisionException, RecentLoginRequiredException {
+        //reauthenticate the user
+        try {
+            EmailAuthCredential thisUser = new EmailAuthCredential(this.password,this.email);
+            reauthenticate(thisUser);
+        }
+        catch (InvalidUserException invalidUser)
+        {
+            throw invalidUser;
+        }
+        catch (InvalidCredentialException invalidCredential)
+        {
+            throw new InvalidUserException("ERROR_USER_NOT_FOUND", "creating credential has been failed!");
+        }
+
+        // easier regex to test if email is valid
+        // needs to be modified for more security!
+        String emailRegex = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
+
+        // test if new email is valid
+        if (email.matches(emailRegex)) {
+            //test if email is already taken by another account
+            // for testing, email is not in use
+            if(!false)
+            {
+                //TODO when database is added --> change email in database
+                this.email = email;
+            }
+            else
+            {
+                throw new UserCollisionException("ERROR_EMAIL_ALREADY_IN_USE","the requested email-address is already in use!");
+            }
+        }
+        else {
+            throw new InvalidCredentialException("ERROR_EMAIL_INVALID", "Email does not have the correct form!");
+        }
         return null;
     }
 
