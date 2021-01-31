@@ -2,9 +2,7 @@ package app.activity;
 
 import auth.AppAuth;
 import auth.AppAuthResult;
-import exception.authexception.AuthInvalidCredentialException;
-import exception.authexception.AuthInvalidUserException;
-import exception.authexception.AuthUserCollisionException;
+import exception.authexception.*;
 import job.Job;
 import job.statelistener.OnCompleteListener;
 
@@ -23,7 +21,7 @@ public class LoginActivity {
                     }
                 }
             });
-        } catch (AuthInvalidCredentialException | AuthUserCollisionException e) {
+        } catch (AuthInvalidCredentialException | AuthEntityCollisionException e) {
             e.getErrorCode();
         }
     }
