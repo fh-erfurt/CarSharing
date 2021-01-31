@@ -132,7 +132,7 @@ public class Auth extends AppAuth{
                                 + "upper case letter and one digit");
             }
         }
-    }
+
         return null;
     }
 
@@ -167,7 +167,7 @@ public class Auth extends AppAuth{
     protected InvalidCredentialException createException(final String message) {
         return new InvalidCredentialException(message);
     }
-    });
+
         return null;
     }
 
@@ -290,7 +290,7 @@ public class Auth extends AppAuth{
         .assertValueSet(Collections.singletonList(RESULT_CODE))
         .assertComplete()
         .dispose();
-        }
+
         return null;
     }
-}
+
