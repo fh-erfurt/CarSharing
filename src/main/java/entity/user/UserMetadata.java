@@ -30,7 +30,13 @@ public class UserMetadata implements UserEntityMetadata{
     }
 
     @Override
-    public long getCreationTimestamp() {
+    public Timestamp getCreationTimestamp() {
+
+        return creationTimestamp;
+    }
+
+    @Override
+    public long getDurationSinceCreation() {
 
        long durationSinceCreation = getDurationInMilliseconds(creationTimestamp);
 
@@ -38,7 +44,13 @@ public class UserMetadata implements UserEntityMetadata{
     }
 
     @Override
-    public long getLastSignInTimestamp() {
+    public Timestamp getLastSignInTimestamp() {
+
+        return lastSignInTimestamp;
+    }
+
+    @Override
+    public long getDurationSinceLastSignIn() {
 
         long durationSinceLastSignIn = 0;
 
@@ -50,7 +62,13 @@ public class UserMetadata implements UserEntityMetadata{
     }
 
     @Override
-    public long getLastRefreshTimestamp() {
+    public Timestamp getLastRefreshTimestamp() {
+
+        return lastRefreshTimestamp;
+    }
+
+    @Override
+    public long getDurationSinceLastRefresh() {
 
         long durationSinceLastRefresh = 0;
 
