@@ -10,6 +10,16 @@ public class User implements UserInfo {
     private boolean verified;
     private UserMetadata metadata;
 
+    public User(String displayName, String password, String email, String photoUrl, String userId, String phoneNumber) {
+
+        this.displayName = displayName;
+        this.email = email;
+        this.photoUrl = photoUrl;
+        this.userId = userId;
+        this.phoneNumber = phoneNumber;
+        metadata = new UserMetadata();
+    }
+
     @Override
     public String getEmail() {
         return this.email;
