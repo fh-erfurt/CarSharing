@@ -1,4 +1,9 @@
-package model.user;
+/**
+ * returns userdata (email adress, phone number, displayname)
+ * userdata can be updated at any time
+ */
+
+/package model.user;
 
 import model.location.Location;
 
