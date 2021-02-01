@@ -1,3 +1,9 @@
+/**
+ * This class manages the activities of the specific user, that is a driver
+ * it is an extension of the base class UserHandler and gives the driver the ability
+ * to pick up other users from a specific location and bring them to their desired one
+ */
+
 package handler;
 
 import auth.*;

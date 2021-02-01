@@ -1,3 +1,8 @@
+/**
+ * This class contains methods, so a user can even use the functions of the application
+ * meaning functions to register to the service, log into it and recall their location
+ */
+
 package handler;
 
 import model.location.Location;
