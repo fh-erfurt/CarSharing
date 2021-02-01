@@ -1,6 +1,6 @@
 /**
- * returns userdata (email adress, phone number, displayname)
- * userdata can be updated at any time
+ * this class returns userdata (email address, phone number, displayname)
+ * the userdata can be updated at any time
  */
 
 package model.user;
