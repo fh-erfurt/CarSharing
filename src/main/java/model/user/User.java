@@ -10,6 +10,7 @@ public class User implements UserInfo {
     private String displayName, password, email, photoUrl, userId, phoneNumber;
     private boolean verified;
     private UserMetadata metadata;
+    private boolean occupied;
 
     public User(String displayName, String password, String email, String photoUrl, String userId, String phoneNumber) {
 
@@ -20,6 +21,22 @@ public class User implements UserInfo {
         this.userId = userId;
         this.phoneNumber = phoneNumber;
         metadata = new UserMetadata();
+        this.occupied = false;
+
+    }
+
+    public void startRide()
+    {
+        this.occupied = true;
+    }
+
+    public void endRide()
+    {
+        this.occupied = false;
+    }
+
+    public boolean isOccupied(){
+        return this.occupied;
     }
 
     @Override

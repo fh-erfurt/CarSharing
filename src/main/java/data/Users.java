@@ -4,6 +4,11 @@ import model.user.User;
 
 import java.util.*;
 
+/**
+ * The Users class will store all users.
+ * It is divided in two hashmaps storing the customers and drivers
+ */
+
 public final class Users {
     private static final HashMap<String, HashMap<String, User>> users = new HashMap<String, HashMap<String, User>>();
     private static final String driverListKey = "DRIVERS";

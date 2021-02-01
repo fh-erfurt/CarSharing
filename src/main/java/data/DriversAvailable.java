@@ -4,6 +4,11 @@ import model.location.Location;
 
 import java.util.HashMap;
 
+/**
+ * The DriversAvailable class builds a "dummy" database
+ * for the users which will be drivers.
+ */
+
 public final class DriversAvailable {
     private static final HashMap<String, Location> driverLocations = new HashMap<String, Location>();
 
