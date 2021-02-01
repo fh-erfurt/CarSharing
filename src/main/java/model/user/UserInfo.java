@@ -3,7 +3,7 @@
  * userdata can be updated at any time
  */
 
-/package model.user;
+package model.user;
 
 import model.location.Location;
 

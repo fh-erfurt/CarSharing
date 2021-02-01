@@ -17,7 +17,7 @@ public class UserHandler {
                         // report sign up error
                     } else {
                         String user_id = auth.getCurrentUser().getUserId();
-                        // add new customer to archive.main.database
+                        // add new customer to database
                     }
                 }
             });
