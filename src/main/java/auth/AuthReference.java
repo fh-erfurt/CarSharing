@@ -1,4 +1,4 @@
-package auth;
+/*package auth;
 
 public class AuthReference {
     package auth;
@@ -71,15 +71,15 @@ import job.Job;
         // applies the given code (any valid out of band code)
         @Override
         public void subscribe(CompletableEmitter emitter) throws Exception {
-            RxCompletableHandler.assignOnTask(emitter, firebaseAuth.applyActionCode(code));
+            RxCompletableHandler.assignOnTask(emitter, Auth.applyActionCode(code));
         };
         @test
         public Job<Void> applyAccessCode(String code) {
-            TestObserver authTestObserver = RxFirebaseAuth
-                    .applyAccessCode(firebaseAuth, ANY_CODE)
+            TestObserver authTestObserver = RxAuth
+                    .applyAccessCode(Auth, ANY_CODE)
                     .test();
             testOnCompleteListener.getValue().onComplete(voidTask);
-            verify(firebaseAuth).applyAccessCode(eq(ANY_CODE));
+            verify(Auth).applyAccessCode(eq(ANY_CODE));
             authTestObserver.assertNoErrors()
                     .assertValueSet(Collections.singletonList(voidTask))
                     .assertComplete()
@@ -90,16 +90,16 @@ import job.Job;
         // checks that code given is valid.
         @Override
         public void subscribe(MaybeEmitter<AccessCodeResult> emitter) throws Exception {
-            RxHandler.assignOnTask(emitter, firebaseAuth.checkAccessCode(code));
+            RxHandler.assignOnTask(emitter, Auth.checkAccessCode(code));
         };
         @Test
         public Job<ActionCodeResult> checkAccessCode(String code) {
-            TestObserver<ActionCodeResult> authTestObserver = RxFirebaseAuth
-                    .checkActionCode(firebaseAuth, ANY_CODE)
+            TestObserver<ActionCodeResult> authTestObserver = RxAuth
+                    .checkActionCode(Auth, ANY_CODE)
                     .test();
             testOnSuccessListener.getValue().onSuccess(actionCodeResult);
             testOnCompleteListener.getValue().onComplete(actionCodeResultTask);
-            verify(firebaseAuth).checkActionCode(eq(ANY_CODE));
+            verify(Auth).checkActionCode(eq(ANY_CODE));
             authTestObserver.assertNoErrors()
                     .assertValueCount(1)
                     .assertValueSet(Collections.singletonList(actionCodeResult))
@@ -114,11 +114,11 @@ import job.Job;
         public Job<Void> confirmPasswordReset(String code, String newPassword) throws IllegalArgumentException, AuthActionCodeException, AuthInvalidUserException, AuthWeakPasswordException {
             @Test
             public void confirmPasswordReset() {
-                TestObserver authTestObserver = RxFirebaseAuth
-                        .confirmPasswordReset(firebaseAuth, ANY_CODE, ANY_PASSWORD)
+                TestObserver authTestObserver = RxAuth
+                        .confirmPasswordReset(Auth, ANY_CODE, ANY_PASSWORD)
                         .test();
                 testOnCompleteListener.getValue().onComplete(voidTask);
-                verify(firebaseAuth).confirmPasswordReset(eq(ANY_CODE), eq(ANY_PASSWORD));
+                verify(Auth).confirmPasswordReset(eq(ANY_CODE), eq(ANY_PASSWORD));
                 authTestObserver.assertNoErrors()
                         .assertValueSet(Collections.singletonList(voidTask))
                         .assertComplete()
@@ -142,7 +142,7 @@ import job.Job;
         // creates new user account with given email and password
         @Override
         public Job<AppAuthResult> createUserEntity(String email, String password) throws AuthWeakPasswordException, AuthInvalidCredentialException, AuthUserCollisionException {
-            firebase.auth().createUserEntity(email, password)
+            .auth().createUserEntity(email, password)
                     .then((userCredential) => {
                     // Signed in
                     var user = userCredential.user;
@@ -183,14 +183,14 @@ import job.Job;
     @Override
     public UserEntity getCurrentUserEntity() {
         //public Boolean userAuthenticated()
-        return FirebaseAuth.getInstance().getCurrentUser() != null;
+        return Auth.getInstance().getCurrentUser() != null;
 
     }
 
     // returns an instance of this class corresponding to the default app instance      war bei AppAuth.java enthalten bei Auth.java nicht
     //public static AppAuth getInstance(){
     //public Boolean userAuthenticated() {
-    //return FirebaseAuth.getInstance() != null;}
+    //return Auth.getInstance() != null;}
 
 
     // triggers the authentication backend to send a password-reset email to the given email address, which must correspond to the an existing user of the app
@@ -203,10 +203,10 @@ import job.Job;
                         if (task.isSuccessful()) {
                             emitter.onComplete();
                         } else {
-                            emitter.onError(getFirebaseError(DatabaseError.fromException(task.getException())));
+                            emitter.onError(getError(DatabaseError.fromException(task.getException())));
                         }
                     };
-                    FirebaseAuth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener(resultHandler);
+                    Auth.getInstance().sendPasswordResetEmail(email).addOnCompleteListener(resultHandler);
                 }).subscribeOn(Schedulers.single());
 
 
@@ -218,19 +218,19 @@ import job.Job;
     @Override
     public Job<AppAuthResult> signInWithEmailAndPassword(final Activity activity, String email, String password)
     {
-        FirebaseAuth.getInstance()
+        Auth.getInstance()
                 .signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.d(TAG, "performFirebaseLogin:onComplete:" + task.isSuccessful());
+                        Log.d(TAG, "performLogin:onComplete:" + task.isSuccessful());
                         // If sign in fails, display a message to the user. If sign in succeeds
                         // the auth state listener will be notified and logic to handle the
                         // signed in user can be handled in the listener.
                         if (task.isSuccessful()) {
                             mOnLoginListener.onSuccess(task.getResult().toString());
-                            updateFirebaseToken(task.getResult().getUser().getUid(),
-                                    new SharedPrefUtil(activity.getApplicationContext()).getString(Constants.ARG_FIREBASE_TOKEN, null));
+                            updateToken(task.getResult().getUser().getUid(),
+                                    new SharedPrefUtil(activity.getApplicationContext()).getString(Constants.ARG__TOKEN, null));
                         } else {
                             mOnLoginListener.onFailure(task.getException().getMessage());
                         }
@@ -243,8 +243,8 @@ import job.Job;
     // signs out current entity
     @Override
     public void signOut() {
-        if (FirebaseAuth.getCurrentUser() != null) {
-            FirebaseAuth.getCurrentUser().signOut();
+        if (Auth.getCurrentUser() != null) {
+            Auth.getCurrentUser().signOut();
             mOnLogoutListener.onSuccess("Successfully logged out!");
         } else {
             mOnLogoutListener.onFailure("No user logged in yet!");
@@ -254,7 +254,7 @@ import job.Job;
     //updates a current user(UserName, Email, Adress)
     @Override
     public Job<Void> updateCurrentUserEntity(AppEntity entity) {
-        var user = firebase.auth().currentUser;
+        var user = .auth().currentUser;
 
         user.updateUserName("Jane Q. User") .then(function() {
             // Update successful.
@@ -277,17 +277,17 @@ import job.Job;
     // checks that code is a valid password reset out of band code
     @Override
     public void subscribe(MaybeEmitter<String> emitter) throws Exception {
-        RxHandler.assignOnTask(emitter, firebaseAuth.verifyPasswordResetCode(code));
+        RxHandler.assignOnTask(emitter, Auth.verifyPasswordResetCode(code));
 
     });
     @Test
     public Job<String> verifyPasswordResetCode(String code) {
-        TestObserver<String> authTestObserver = RxFirebaseAuth
-                .verifyPasswordResetCode(firebaseAuth, ANY_CODE)
+        TestObserver<String> authTestObserver = RxAuth
+                .verifyPasswordResetCode(Auth, ANY_CODE)
                 .test();
         testOnSuccessListener.getValue().onSuccess(RESULT_CODE);
         testOnCompleteListener.getValue().onComplete(checkCodeResultTask);
-        verify(firebaseAuth).verifyPasswordResetCode(ANY_CODE);
+        verify(Auth).verifyPasswordResetCode(ANY_CODE);
         authTestObserver.assertNoErrors()
                 .assertValueCount(1)
                 .assertValueSet(Collections.singletonList(RESULT_CODE))
@@ -296,4 +296,4 @@ import job.Job;
 
         return null;
     }
-}
+}*/
