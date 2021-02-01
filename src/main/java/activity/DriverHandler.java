@@ -5,11 +5,11 @@ import data.Locations;
 import model.location.Location;
 import model.user.User;
 
-public class DriverActivity extends UserActivity {
+public class DriverHandler extends UserHandler {
     private Auth auth;
     private AuthListener authListener;
 
-    DriverActivity(){
+    DriverHandler(){
         this.init();
     }
 
@@ -21,10 +21,10 @@ public class DriverActivity extends UserActivity {
         };
     }
     public void loginDriver(String email, String password){
-        UserActivity.loginUser(email, password, this.auth);
+        UserHandler.loginUser(email, password, this.auth);
     }
     public void registerDriver(String email, String password){
-        UserActivity.registerUser(email, password, this.auth);
+        UserHandler.registerUser(email, password, this.auth);
     }
     void terminateProcess(){
         this.auth.removeAuthListener(this.authListener);
@@ -33,6 +33,15 @@ public class DriverActivity extends UserActivity {
         assert Auth.getInstance() != null;
         User user = Auth.getInstance().getCurrentUser();
         Locations.updateDriverLocation(user.getUserId(), location);
+    }
+    void notifyDriverOfRequest(){
+        // notify driver of request available
+    }
+    void assignCustomerToDriver(){
+        // if selected, assign customer to driver and update customer
+    }
+    void getCustomerPickupLocation(){
+        // show customer location on driver map
     }
     public void onEndRide(){
 

@@ -8,13 +8,12 @@ import model.user.User;
 
 import java.util.HashMap;
 
-import static data.DriversAvailable.getDriverLocations;
-
-public class CustomerActivity extends UserActivity {
+public class CustomerHandler extends UserHandler {
     private Auth auth;
     private AuthListener authListener;
+    private boolean requestMade;
 
-    CustomerActivity(){
+    CustomerHandler(){
         this.init();
     }
 
@@ -41,15 +40,34 @@ public class CustomerActivity extends UserActivity {
     }
 
     void makeRequest(){
-        Location pickupLocation = UserActivity.getLastLocation();
+        Location pickupLocation = UserHandler.getLastLocation();
+        // set request made parameter to true
+        // while request made parameter is true
         // notify customer searching for nearby driver
+        // get closest driver
+        // show driver location on customer map
+        // compare location of closest driver periodically
+        // if location of closest driver less than (100)
+        // notify customer driver has arrived
+        // otherwise notify customer driver arriving
     }
 
     private User getClosestDriver(Location location) {
         HashMap<String, Location> driversAvailable = DriversAvailable.getDriverLocations();
-        // compare location distance to and return nearest driver
+        // while request made is true and closest driver not found
+        // compare location distance to customer and find nearest driver
+        // notify driver of available customer
+        // if driver accepts, return driver and notify customer
+        // else find next closest driver
         return null;
     }
 
+    void cancelRequest(){
+        // set request made parameter to false and cancel search for driver process
+    }
+
+    void getDriverPickupLocation(){
+
+    }
 
 }

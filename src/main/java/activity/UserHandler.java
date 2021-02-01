@@ -1,13 +1,11 @@
 package activity;
 
-import data.Locations;
 import model.location.Location;
 import task.*;
 import auth.*;
 import exception.*;
-import model.user.User;
 
-public class UserActivity {
+public class UserHandler {
     private static Location lastKnownLocation;
     static void registerUser(String email, String password, Auth auth) {
         try {
@@ -47,7 +45,7 @@ public class UserActivity {
     }
 
     static Location getLastLocation(){
-        return UserActivity.lastKnownLocation;
+        return UserHandler.lastKnownLocation;
     }
 
 }
