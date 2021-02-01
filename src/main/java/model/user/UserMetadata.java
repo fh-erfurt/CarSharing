@@ -1,8 +1,13 @@
+/**
+ * this class stores additional metadata of one specific account to monitor the login activity
+ * it also contains methods to output the duration between a point of user activity and now
+ * this class is constructed in the User-class, binding each object of it to one User-object
+ */
+
 package model.user;
 
 import java.sql.Timestamp;
 
-// this class stores metadata to monitor the login activity of an account
 public class UserMetadata{
 
     private Timestamp creationTimestamp;

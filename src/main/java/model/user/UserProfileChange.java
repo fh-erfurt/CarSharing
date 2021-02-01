@@ -1,3 +1,7 @@
+/**
+ * This class is used to change a user's profile, meaning their Account name and Picture
+ */
+
 package model.user;
 
 public class UserProfileChange {
