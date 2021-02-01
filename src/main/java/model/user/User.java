@@ -1,10 +1,17 @@
+/**
+ * This class manages the account data of one user
+ * it also allows them to change it with the methods update Email, PhoneNumber, Password and Profile
+ * to do this, it is necessary to check, if the account is actually authenticated
+ * and if not, ask the user to reauthenticate again
+ */
+
 package model.user;
 
 import task.Task;
 import auth.*;
 import exception.*;
 
-// this class manages an account's data
+
 public class User implements UserInfo {
 
     private String displayName, password, email, photoUrl, userId, phoneNumber;
