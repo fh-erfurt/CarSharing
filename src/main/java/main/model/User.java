@@ -7,8 +7,7 @@ import java.util.*;
  */
 
 public class User {
-    private String id,
-                   name,
+    private String name,
                    address,
                    phone,
                    email,
@@ -23,9 +22,6 @@ public class User {
      */
 
     public void setDetails (Map<String, String> user) {
-        if (this.id == null) {
-            this.id = user.get("id");
-        }
         if (user.get("name") != null) {
             this.name = user.get("name");
         }
@@ -45,7 +41,7 @@ public class User {
      */
 
     public Map<String, String> getDetails() {
-        return Map.of("id", this.id, "name", this.name, "address", this.address, "phone", phone, "email", this.email);
+        return Map.of("name", this.name, "address", this.address, "phone", phone, "email", this.email);
     }
 
     /**
@@ -54,7 +50,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "Id: " + this.id + "\nEmail: " + this.email + "\nName: " + this.name + "\nAddress: " + this.address + "\nPhone number: " + this.phone;
+        return "Email: " + this.email + "\nName: " + this.name + "\nAddress: " + this.address + "\nPhone number: " + this.phone;
     }
 
     /**
@@ -169,7 +165,7 @@ public class User {
             return false;
         }
 
-        return Objects.equals(this.id, user.id);
+        return Objects.equals(this.name, user.name);
     }
 
     /**
@@ -179,7 +175,7 @@ public class User {
     @Override
     public int hashCode () {
         int result = this.email != null ? this.email.hashCode() : 0;
-        result = 31 * result + (this.id != null ? id.hashCode() : 0);
+        result = 31 * result + (this.name != null ? this.name.hashCode() : 0);
         return result;
     }
 }
