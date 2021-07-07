@@ -10,8 +10,7 @@ public class User {
     private String name,
                    address,
                    phone,
-                   email,
-                   photoUri;
+                   email;
     private byte[] password,
                    salt;
 
@@ -123,24 +122,6 @@ public class User {
 
     public byte[] getSalt() {
         return this.salt;
-    }
-
-    /**
-     * set profile photo uri
-     *
-     * @param photoUri - resource identifier for user profile image
-     */
-
-    public void setPhotoUri(String photoUri) {
-        this.photoUri = photoUri;
-    }
-
-    /**
-     * @return user profile image uri as string value
-     */
-
-    public String getPhotoUri () {
-        return this.photoUri;
     }
 
     /**
