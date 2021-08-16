@@ -19,7 +19,7 @@ public class Ride {
     @Id
     @Column(name = "rideid")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int rideId;
+    private int id;
 
     @Column(name = "driverid")
     private int driverId;
@@ -27,8 +27,8 @@ public class Ride {
     @Column(name = "drivername")
     private String driverName;
 
-    @Column(name = "fromlocation")
-    private String fromLocation;
+    @Column(name = "startlocation")
+    private String startLocation;
 
     @Column(name = "vehicle")
     private String vehicle;
@@ -44,4 +44,133 @@ public class Ride {
 
     @Column(name = "time")
     private String time;
+
+    public Ride() {
+
+    }
+
+    public Ride(
+        int id, 
+        String driverName, 
+        String startLocation, 
+        String vehicle, 
+        String regNum, 
+        int numOfSeats
+        ) {
+        super();
+        this.id = id;
+        this.driverName = driverName;
+        this.startLocation = startLocation;
+        this.vehicle = vehicle;
+        this.regNum = regNum;
+        this.numOfSeats = numOfSeats;
+    }
+
+    /*
+     * date
+     */
+
+    public String getDate() {
+        return this.date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    /*
+     * time
+     */
+
+    public String getTime() {
+        return this.time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
+    }
+
+    /*
+     * ride id
+     */
+
+    public int getRideId() {
+        return this.id;
+    }
+
+    public void setRideId(int id) {
+        this.id = id;
+    }
+
+    /*
+     * driver id
+     */
+
+    public int getDriverId() {
+        return this.driverId;
+    }
+
+    public void setDriverId(int id) {
+        this.driverId = id;
+    }
+
+    /*
+     * driver name
+     */
+
+    public String getDriverName() {
+        return this.driverName;
+    }
+
+    public void setDriverName(String name) {
+        this.driverName = name;
+    }
+
+    /*
+     * ride start location
+     */
+
+    public String getStartLocation() {
+        return this.startLocation;
+    }
+
+    public void setStartLocation(String location) {
+        this.startLocation = location;
+    }
+
+    /*
+     * vehicle
+     */
+
+    public String getVehicle() {
+        return this.vehicle;
+    }
+
+    public void setVehicle(String vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    /*
+     * registration number
+     */
+
+    public String getRegNum() {
+        return this.regNum;
+    }
+
+    public void setRegnum(String number) {
+        this.regNum = number;
+    }
+
+    /*
+     * number of seats 
+     */
+
+    public int getNumOfSeats() {
+        return this.numOfSeats;
+    }
+
+    public void setNumOfSeats(int number) {
+        this.numOfSeats = number;
+    }
 }
