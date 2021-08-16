@@ -1,8 +1,7 @@
 package carsharing.model;
 
-/*
+/**
  * @author Dave Akinyemi
- * @date August 15, 2021.
  * @version 3.0
  */
 
@@ -66,7 +65,7 @@ public class Ride {
         this.numOfSeats = numOfSeats;
     }
 
-    /*
+    /**
      * date
      */
 
@@ -78,7 +77,7 @@ public class Ride {
         this.date = date;
     }
 
-    /*
+    /**
      * time
      */
 
@@ -90,7 +89,7 @@ public class Ride {
         this.time = time;
     }
 
-    /*
+    /**
      * ride id
      */
 
@@ -102,7 +101,7 @@ public class Ride {
         this.id = id;
     }
 
-    /*
+    /**
      * driver id
      */
 
@@ -114,7 +113,7 @@ public class Ride {
         this.driverId = id;
     }
 
-    /*
+    /**
      * driver name
      */
 
@@ -126,7 +125,7 @@ public class Ride {
         this.driverName = name;
     }
 
-    /*
+    /**
      * ride start location
      */
 
@@ -138,7 +137,7 @@ public class Ride {
         this.startLocation = location;
     }
 
-    /*
+    /**
      * vehicle
      */
 
@@ -150,7 +149,7 @@ public class Ride {
         this.vehicle = vehicle;
     }
 
-    /*
+    /**
      * registration number
      */
 
@@ -162,7 +161,7 @@ public class Ride {
         this.regNum = number;
     }
 
-    /*
+    /**
      * number of seats 
      */
 
