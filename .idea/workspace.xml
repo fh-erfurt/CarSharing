@@ -4,11 +4,81 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="10f45480-98d8-4f0e-9e79-b86866a53bc5" name="Changes" comment="" />
+    <list default="true" id="10f45480-98d8-4f0e-9e79-b86866a53bc5" name="Changes" comment="reinitialize spring boot carsharing project">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/config/SecurityConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/controller/AuthController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/dto/AuthenticationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/dto/LoginRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/dto/RefreshTokenRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/dto/RegisterRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/exception/CarSharingException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/model/Billing.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/model/Driver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/model/NotificationEmail.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/model/Rating.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/model/RefreshToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/model/Request.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/model/RiderSchedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/model/Schedule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/model/Trip.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/model/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/model/VerificationToken.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/repository/RefreshTokenRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/repository/UserRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/repository/VerificationTokenRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/security/JwtAuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/security/JwtProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/service/AuthService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/service/MailContentBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/service/MailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/service/RefreshTokenService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/service/UserDetailsServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/springblog.jks" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/scripts/bootstrap/bootstrap.bundle.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/scripts/bootstrap/bootstrap.bundle.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/scripts/bootstrap/bootstrap.bundle.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/scripts/bootstrap/bootstrap.bundle.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/scripts/bootstrap/bootstrap.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/scripts/bootstrap/bootstrap.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/scripts/bootstrap/bootstrap.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/scripts/bootstrap/bootstrap.min.js.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/scripts/geoLocation.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/bootstrap/bootstrap-grid.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/bootstrap/bootstrap-grid.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/bootstrap/bootstrap-grid.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/bootstrap/bootstrap-grid.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/bootstrap/bootstrap-reboot.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/bootstrap/bootstrap-reboot.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/bootstrap/bootstrap-reboot.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/bootstrap/bootstrap-reboot.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/bootstrap/bootstrap.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/bootstrap/bootstrap.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/bootstrap/bootstrap.min.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/bootstrap/bootstrap.min.css.map" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/lux.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/reset.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/static/styles/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/CarsharingApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/javaii/carsharing/CarsharingApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/javaii/carsharing/CarsharingApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/javaii/carsharing/CarsharingApplication.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="CSS File" />
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -16,11 +86,15 @@
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
       <map>
+        <entry key="JPA Inspector" value="true" />
+        <entry key="JPA Palette" value="true" />
         <entry key="JPA Structure" value="true" />
       </map>
     </option>
     <option name="myId2Visible">
       <map>
+        <entry key="JPA Inspector" value="false" />
+        <entry key="JPA Palette" value="false" />
         <entry key="JPA Structure" value="false" />
       </map>
     </option>
@@ -31,14 +105,25 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources/static/scripts" />
+      <recent name="$PROJECT_DIR$/src/main/resources/static" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/main/resources/templates" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="CarsharingApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
@@ -69,11 +154,34 @@
       <option name="presentableId" value="Default" />
       <updated>1630143073003</updated>
       <workItem from="1630143074995" duration="3000" />
-      <workItem from="1630143098596" duration="323000" />
+      <workItem from="1630143098596" duration="12424000" />
     </task>
+    <task id="LOCAL-00001" summary="reinitialize spring boot carsharing project">
+      <created>1630143472354</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1630143472354</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="reinitialize spring boot carsharing project" />
+    <option name="LAST_COMMIT_MESSAGE" value="reinitialize spring boot carsharing project" />
   </component>
 </project>
