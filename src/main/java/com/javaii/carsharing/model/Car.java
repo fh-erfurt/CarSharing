@@ -1,66 +1,104 @@
 package com.javaii.carsharing.model;
 
-import lombok.*;
-import org.hibernate.Hibernate;
-import org.hibernate.validator.constraints.Range;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import java.io.Serializable;
-import java.util.Objects;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-public class Car implements Serializable {
+@Table(name="car")
+public class Car {
     @Id
-    @NotBlank(message = "{notBlank}")
-    @EqualsAndHashCode.Include
-    private String registrationNr;
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name="id")
+    private long id;
 
-    @NotNull(message = "{notNull}")
-    @Range(min = 1850, max = 2090, message = "{constructionYearError}")
-    private Integer constructionYear;
+    private String brand;
 
-    @NotNull(message = "{notNull}")
-    @Min(value = 0, message = "{mileageError}")
-    private Integer mileage;
-
-    @NotBlank(message = "{notBlank}")
     private String model;
 
-    @ManyToOne
-    private Station station;
+    private int productionYear;
 
-    public void setRegistrationNr(String registrationNr) {
-        this.registrationNr = registrationNr.strip();
+    private String specification;
+
+    private double basePricePerDay;
+
+    @ManyToOne
+    @JoinColumn(name = "branch_id")
+    private Branch branch;
+
+    @OneToMany(mappedBy = "car")
+    private List<Reservation> reservations;
+
+
+    public List<Reservation> getReservations() {
+        return this.reservations;
+    }
+
+    public void setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+    }
+
+    public long getId() {
+        return this.id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getBrand() {
+        return this.brand;
+    }
+
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public String getModel() {
+        return this.model;
     }
 
     public void setModel(String model) {
-        this.model = model.strip();
+        this.model = model;
+    }
+
+    public int getProductionYear() {
+        return this.productionYear;
+    }
+
+    public void setProductionYear(int productionYear) {
+        this.productionYear = productionYear;
+    }
+
+    public String getSpecification() {
+        return this.specification;
+    }
+
+    public void setSpecification(String specification) {
+        this.specification = specification;
+    }
+
+    public double getBasePricePerDay() {
+        return this.basePricePerDay;
+    }
+
+    public void setBasePricePerDay(double basePricePerDay) {
+        this.basePricePerDay = basePricePerDay;
+    }
+
+    public Branch getBranch() {
+        return this.branch;
+    }
+
+    public void setBranch(Branch location) {
+        this.branch = location;
     }
 
     @Override
     public String toString() {
-        return "(" + this.registrationNr + ") " + this.model;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Car car = (Car) o;
-        return Objects.equals(registrationNr, car.registrationNr);
-    }
-
-    @Override
-    public int hashCode() {
-        return 0;
+        return
+                "brand='" + this.brand + '\'' +
+                        ", model='" + this.model + '\'' +
+                        ", productionYear=" + this.productionYear +
+                        ", specification='" + this.specification;
     }
 }
