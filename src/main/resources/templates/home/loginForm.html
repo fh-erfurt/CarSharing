@@ -5,18 +5,14 @@
 </head>
 <body>
 <nav th:replace="template :: navbar"></nav>
-<div>
+<div align="center">
     <br>
     <h2>Login Form</h2>
     <hr>
     <br>
     <form action="#" th:action="@{/login}" th:object="${loginRequest}" method="GET">
-        <label>
-            <input type="text" th:field="*{userName}" placeholder="User Name" class="form-control mb-4 col-4" />
-        </label>
-        <label>
-            <input type="password" th:field="*{password}" placeholder="Password" class="form-control mb-4 col-4"/>
-        </label>
+        <input type="text" th:field="*{userName}" placeholder="User Name" class="form-control mb-4 col-4" />
+        <input type="password" th:field="*{password}" placeholder="Password" class="form-control mb-4 col-4"/>
         <button type="submit" class="btn btn-info col-2">Login</button>
     </form>
 </div>
