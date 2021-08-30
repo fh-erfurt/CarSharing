@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="index_head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>M&K</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link th:href="@{../css/navbar.css}" rel="stylesheet" />
+    <link th:href="@{../css/styles.css}" rel="stylesheet" />
+</head>
+<body>
+<nav th:fragment="navbar" class="navbar navbar-dark bg-dark">
+    <div class="logo">
+        CS
+    </div>
+    <div class="headerDiv">
+        Car Rental
+    </div>
+    <div class="rightUpperCornerDiv">
+        <a id = "loginButton" href="loginForm" class = "btn btn-primary btn-sm">login</a>
+        <a href="register" class = "btn btn-info btn-sm">register</a>
+    </div>
+</nav>
+<footer th:fragment="app_footer" class="footer mt-auto py-3">
+    <br>
+    <br>
+    <div class="container">
+        <span class="text-muted">CarSharing Company    Customer Service   email: csc@csc.com,   tel: (+49) 123 4567 8901,   fax: (+49) 264 4335 1546</span>
+    </div>
+    <script type="text/javascript" th:src="@{js/jquery-3.6.0.min.js}"></script>
+</footer>
+</body>
+</html>
