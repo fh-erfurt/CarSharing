@@ -3,9 +3,11 @@ package com.javaii.carsharing.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "damage")
 public class Damage {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name="id")
     private long id;
 
     private String description;

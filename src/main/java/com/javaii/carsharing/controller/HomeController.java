@@ -15,9 +15,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class HomeController {
-    CustomerServiceImpl customerService;
-    CarService carService;
-    EmployeeServiceImpl employeeService;
+    private final CustomerServiceImpl customerService;
+    private final CarService carService;
+    private final EmployeeServiceImpl employeeService;
 
     public HomeController(CustomerServiceImpl customerService, CarService carService, EmployeeServiceImpl employeeService) {
         this.customerService = customerService;

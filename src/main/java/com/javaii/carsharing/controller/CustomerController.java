@@ -128,9 +128,7 @@ public class CustomerController {
         reservationService.deleteReservation(id);
         return "redirect:/customer/reservations";
     }
-    // ============ RESERVATIONS ============ END
 
-    // ============ INVOICES ============ BEG
     @RequestMapping("/invoices")
     public String viewInvoices(Model model){
         List<Invoice> invoices = invoiceService.findAllByCustomer(customer);

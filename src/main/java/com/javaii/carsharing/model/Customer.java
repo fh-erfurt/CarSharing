@@ -4,9 +4,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "customer")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name="id")
     private long id;
 
     private String email;

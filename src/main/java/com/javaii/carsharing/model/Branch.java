@@ -4,9 +4,11 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "branch")
 public class Branch {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name="id")
     private long id;
 
     @OneToOne(cascade = CascadeType.ALL)

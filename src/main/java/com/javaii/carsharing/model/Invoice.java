@@ -4,9 +4,11 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name = "invoice")
 public class Invoice {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name="id")
     private long id;
     private LocalDateTime issueDate;
 

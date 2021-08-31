@@ -1,5 +1,6 @@
 package com.javaii.carsharing.controller;
 
+import com.javaii.carsharing.api.request.AddBranchRequest;
 import com.javaii.carsharing.api.request.AddEmployeeRequest;
 import com.javaii.carsharing.model.Branch;
 import com.javaii.carsharing.model.Employee;
@@ -70,6 +71,45 @@ public class AdminController {
         model.addAttribute("branches", branches);
         employeeService.deleteEmployeeById(id);
         return "admin/addEmployee";
+    }
+
+    @RequestMapping("/branches")
+    public String viewBranches(Model model){
+        List<Branch> branches = branchService.findAll();
+        model.addAttribute("branches", branches);
+        return "admin/branches";
+    }
+
+    @RequestMapping("/addBranch")
+    public String addBranch(Model model){
+        AddBranchRequest request = new AddBranchRequest();
+        model.addAttribute("addBranchRequest", request);
+        return "admin/addBranch";
+    }
+
+    @PostMapping("/saveBranch")
+    public String saveBranch(@ModelAttribute("addBranchRequest") AddBranchRequest request){
+        branchService.addBranch(request);
+        return "redirect:/admin/branches";
+    }
+
+    @GetMapping("/deleteBranch")
+    public String deleteBranch(@RequestParam("branchId") long id){
+        branchService.deleteBranchById(id);
+        return "redirect:/admin/branches";
+    }
+
+    @GetMapping("/updateBranch")
+    public String updateBranch(@RequestParam("branchId") long id, Model model){
+        Branch branch = branchService.getBranchById(id);
+        AddBranchRequest request = new AddBranchRequest();
+        request.setCity(branch.getAddress().getCity());
+        request.setPostalCode(branch.getAddress().getPostalCode());
+        request.setStreet(branch.getAddress().getStreet());
+        request.setStreetNumber(branch.getAddress().getStreetNumber());
+        model.addAttribute("addBranchRequest", request);
+        branchService.deleteBranchById(id);
+        return "admin/addBranch";
     }
 
 }

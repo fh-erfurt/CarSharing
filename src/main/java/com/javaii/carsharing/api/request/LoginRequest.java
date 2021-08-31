@@ -2,7 +2,7 @@ package com.javaii.carsharing.api.request;
 
 public class LoginRequest {
 
-    public String userName, password;
+    private String userName, password;
 
     public String getUserName() {
         return this.userName;

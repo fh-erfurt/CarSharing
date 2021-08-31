@@ -3,9 +3,11 @@ package com.javaii.carsharing.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "employee")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name="id")
     private long id;
 
     private String firstName, lastName, userName, password, position;
