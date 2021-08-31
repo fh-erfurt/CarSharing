@@ -19,11 +19,11 @@ import java.util.List;
 @Controller
 @RequestMapping("/employee")
 public class EmployeeController {
-    private BranchServiceImpl branchService;
-    private CarServiceImpl carService;
-    private ReservationServiceImpl reservationService;
-    private InvoiceService invoiceService;
-    private RentalService rentalService;
+    private final BranchServiceImpl branchService;
+    private final CarServiceImpl carService;
+    private final ReservationServiceImpl reservationService;
+    private final InvoiceService invoiceService;
+    private final RentalService rentalService;
     private DamageService damageService;
     private static Employee employee;
     private long carId;

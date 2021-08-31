@@ -9,7 +9,8 @@ import org.springframework.context.annotation.ComponentScan;
 		"com.javaii.carsharing.controller",
 		"com.javaii.carsharing.model",
 		"com.javaii.carsharing.repository",
-		"com.javaii.carsharing.service"
+		"com.javaii.carsharing.service",
+		"com.javaii.carsharing.api"
 })
 public class CarsharingApplication {
 

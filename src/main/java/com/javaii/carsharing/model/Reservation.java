@@ -4,9 +4,11 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@Table(name="reservation")
 public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @Column(name="id")
     private long id;
     private LocalDateTime reservationDate;
 
@@ -21,9 +23,9 @@ public class Reservation {
     private Customer customer;
     private double cost;
 
-    @OneToOne(mappedBy ="reservation", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    /*@OneToOne(mappedBy ="reservation", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name = "rental_id")
-    private Rental rental;
+    private Rental rental;*/
 
     public long getId() {
         return this.id;

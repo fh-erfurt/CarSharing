@@ -16,11 +16,11 @@ import java.util.List;
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
-    private CustomerServiceImpl customerService;
-    private BranchServiceImpl branchService;
-    private CarServiceImpl carService;
-    private ReservationServiceImpl reservationService;
-    private InvoiceServiceImpl invoiceService;
+    private final CustomerServiceImpl customerService;
+    private final BranchServiceImpl branchService;
+    private final CarServiceImpl carService;
+    private final ReservationServiceImpl reservationService;
+    private final InvoiceServiceImpl invoiceService;
     private Reservation reservation;
 
     private static Customer customer;
@@ -47,7 +47,7 @@ public class CustomerController {
 
     @RequestMapping("/")
     public String viewPanel() {
-        return "customer/panel";
+        return "/customer/panel";
     }
 
     @PostMapping("/register")
@@ -110,10 +110,17 @@ public class CustomerController {
         return "customer/reservations";
     }
 
-    @RequestMapping("/createReservation")
-    public String createReservation(@RequestParam("carId") long carId,
+    @RequestMapping("/makeReservation")
+    public String viewReservationForm(Model model) {
+        AddReservationRequest addReservationRequest = new AddReservationRequest();
+        model.addAttribute("addReservationRequest", addReservationRequest);
+        return "customer/makeReservation";
+    }
+
+    @PostMapping("/createReservation")
+    public String createReservation(@ModelAttribute("addReservationRequest") AddReservationRequest addReservationRequest,
                                     Model model){
-        reservation.setCar(carService.findCarById(carId));
+        reservation.setCar(carService.findCarById(addReservationRequest.getCar().getId()));
         long numOfDays = Duration.between(reservation.getReservationStart(),reservation.getReservationEnd()).toDays();
         double cost = reservation.getCar().getBasePricePerDay() * numOfDays;
         reservation.setCost(cost);

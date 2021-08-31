@@ -1,4 +1,4 @@
-/*INSERT INTO public.address
+INSERT INTO public.address
     (id, city, postal_code, street, street_number)
 VALUES
     (1001, 'Lübeck', '23569', 'Im Schlag', '1a'),
@@ -71,4 +71,4 @@ INSERT INTO public.invoice
     (id, issue_date, rental_id)
 VALUES
     (1001, DATE'2021-10-14', 1001),
-    (1002, DATE'2021-10-09', 1002);*/
+    (1002, DATE'2021-10-09', 1002);
